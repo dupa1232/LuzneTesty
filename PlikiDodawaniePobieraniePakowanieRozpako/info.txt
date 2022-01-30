@@ -1,0 +1,6 @@
+Do libów dodana tu by³a JARka do mysql, o nazwie: mysql-connector-java-8.0.27.jar
+jak dodaæ jarkê? onenote / intellij / rêczne dodanie libki
+Jest tu te¿ do³±czony zrzut "gdzie by³a libka.jpg"
+
+
+ogólnie, ¿eby dodaæ plik do bazy, to najlepiej jest przemieniæ go na byte[] - patrz pliki w tym folderze.

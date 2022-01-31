@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main2 {
     public static void main(String[] args) {
         int[] tablica = {3,4,2,3};
@@ -28,5 +30,23 @@ public class Main2 {
         System.out.println(tablicaInteger.equals(tablicaInteger2)); // false
         System.out.println(tablicaInteger[1] == tablicaInteger2[1]); //true
         System.out.println(tablicaInteger[1].equals(tablicaInteger2[1])); //true
+
+        // Ma³y int copOf()
+        System.out.println("Arrays.copyOf(x,y)");
+        int[] tab = {1,2,3};
+        Arrays.copyOf(tab,7);
+        for(int el : tab)
+        {
+            System.out.println(el);
+        } // wydrukuje: 1,2,3 /// czyli jakby nie zwiêkszy³o tablicy, bo na podstawie https://www.geeksforgeeks.org/array-class-in-java/ powinno zwiêkszyæ i wydrukowaæ zera w tych nowych miejscach
+
+        /// copyOf() dla Integer tablicy
+        System.out.println("copyOf() dla Integer");
+        Integer[] tabInteger = {3,6,2,2};
+        Arrays.copyOf(tabInteger,8);
+        for(Integer el : tabInteger)
+        {
+            System.out.println(el); // wydrukuje: 3,6,2,2 /// czyli jakby nie zwiêkszy³o tablicy, bo na podstawie https://www.geeksforgeeks.org/array-class-in-java/ powinno zwiêkszyæ i wydrukowaæ zera w tych nowych miejscach
+        }
     }
 }

@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Main2 {
     public static void main(String[] args) {
@@ -42,11 +43,30 @@ public class Main2 {
 
         /// copyOf() dla Integer tablicy
         System.out.println("copyOf() dla Integer");
-        Integer[] tabInteger = {3,6,2,2};
+        Integer[] tabInteger = {3,6,1,2};
         Arrays.copyOf(tabInteger,8);
         for(Integer el : tabInteger)
         {
-            System.out.println(el); // wydrukuje: 3,6,2,2 /// czyli jakby nie zwiêkszy³o tablicy, bo na podstawie https://www.geeksforgeeks.org/array-class-in-java/ powinno zwiêkszyæ i wydrukowaæ zera w tych nowych miejscach
+            System.out.println(el); // wydrukuje: 3,6,1,2 /// czyli jakby nie zwiêkszy³o tablicy, bo na podstawie https://www.geeksforgeeks.org/array-class-in-java/ powinno zwiêkszyæ i wydrukowaæ zera w tych nowych miejscach
         }
+
+        // SORTOWANIE MALEJ¡CE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // w oparciu o https://www.geeksforgeeks.org/array-class-in-java/
+        Arrays.sort(tabInteger, new SortDescInteger());
+        System.out.println("po sortowaniu");
+        for(Integer el : tabInteger)
+        {
+            System.out.println(el); /// i ³adnie sortuje malej±co
+        }
+    }
+    /* xxxx*/
+
+}
+class SortDescInteger implements Comparator<Integer> { /// jakby siê da³o static na pocz±tku, to mo¿na by³oby zawrzeæ w klasie Main2 tê metodê, czyli tu /* xxxx*/
+
+    @Override
+    public int compare(Integer o1, Integer o2) {
+//        return o2.compareTo(o1);
+        return  o2-o1; /// oba daj± ten sam efekt w sortowaniu
     }
 }

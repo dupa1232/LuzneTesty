@@ -49,7 +49,18 @@ public class Main {
         System.out.println(allNames2); // {Ania, Karol, Bartek, Jerzy}
 
 
-        ///dodaæ linki, z których korzysta³em !!!!!!!
+        String s1 = "TAT";
+        String s2 = "TAT";
+        String s3 = new String("TAT");
+        String s4 = new String("TAT");
+        System.out.println(s1);
+        System.out.println(s2);
+        System.out.println(s3);
+        System.out.println(s4);
+        System.out.println(s1 == s2); // true
+        System.out.println(s2 == s3); // false
+        System.out.println(s3 == s4); // false
+
 
         /*
         https://www.geeksforgeeks.org/strings-in-java/?ref=lbp

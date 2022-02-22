@@ -1,0 +1,7 @@
+https://www.geeksforgeeks.org/stream-in-java/
+https://www.baeldung.com/java-8-sort-lambda
+https://www.baeldung.com/java-stream-reduce
+https://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/
+https://www.geeksforgeeks.org/intstream-generate-method-java/
+https://www.baeldung.com/java-8-streams-introduction
+https://www.baeldung.com/java-8-streams

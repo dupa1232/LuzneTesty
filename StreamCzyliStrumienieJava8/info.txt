@@ -5,3 +5,7 @@ https://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/
 https://www.geeksforgeeks.org/intstream-generate-method-java/
 https://www.baeldung.com/java-8-streams-introduction
 https://www.baeldung.com/java-8-streams
+
+
+https://github.com/eugenp/tutorials/tree/master/core-java-modules/core-java-streams-2 - tu te¿ s± fajne poradniki o strumieniach
+

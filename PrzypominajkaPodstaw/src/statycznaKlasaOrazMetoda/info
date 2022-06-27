@@ -1,0 +1,8 @@
+statyczne klasy itp;
+https://javarevisited.blogspot.com/2017/04/can-we-declare-class-static-in-java.html#axzz7XJEjxVpg
+
+--- Moje obserwacje:
+Czyli normalnej klasy, jako static nie mo¿e byæ. Mo¿e byæ wewnêtrzna klasa statyczna.
+Jak mamy zmienne statyczne w klasie, to jak sobie je ustawimy (patrz /* xXxxXxxXxxXxxXxxXxxXx */), to potem mo¿emy z nich korzystaæ,
+bo dziêki JVM, ta klasa sobie "istnieje" po uruchomieniu - w my¶l zasady, ¿e taka zmienna nale¿y do klasy - trochê to nie ma sensu i wydaje
+siê niejasne, co napisa³em, ale jak siê cz³owiek zastanowi, to wydaje siê sensowne :)

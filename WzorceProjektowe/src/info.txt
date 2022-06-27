@@ -1,0 +1,7 @@
+https://nullpointerexception.pl/3-najpopularniejsze-wzorce-projektowe/
+
+https://refactoring.guru/pl/design-patterns/catalog
+https://refactoring.guru/pl/design-patterns/factory-method/java/example
+
+
+https://bykowski.pl/wzorce-projektowe/

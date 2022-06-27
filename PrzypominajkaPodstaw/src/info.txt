@@ -1,0 +1,78 @@
+https://www.baeldung.com/java-final
+---------- FinalKlasa
+/// klasa final nie mo¿e byæ dziedziczona, czyli nie mo¿emy jej extends
+
+---------- FinalMetoda
+/// Methods marked as final cannot be overridden. Ale mo¿na oczywi¶cie na obiekcie klasy nadrzednej, czyli tej, z któej siê dziedziczy, wywolac metode od klasy,
+// "podrzednej", czyli tej, ktora dziedziczy. O ile modyfikatory  dostêpu s± odpowiednie - ~czyli dziecko moze korzystac z cech rodzica
+
+---------- FinalVariable
+// Zmienna final powinna byæ pisana "upper case", gdzie spacje s± pod³ogami -> _
+// Zmienna final musi byc zainicjalizowana w czasie deklaracji, albo najpozniej w konstruktorze
+
+---------- FinalArgumentsToMethod
+public void metodaPrzyjmujacaFinalInt(final int wartosc) {
+        //wartosc = 1; //// nie mozna tak!!!
+    }
+
+    public void metodaPrzyjmujacaFinalString(final String wartosc) {
+//        wartosc = new String();/// nie mozna tak!!!
+//        wartosc = "ass"; /// nie mozna tak!!!
+//        wartosc = null;/// nie mozna tak!!!
+    }
+
+    public void metodaPrzyjmujacaFinalStringBuilder(final StringBuilder wartosc) {
+//        wartosc = new StringBuilder();/// nie mozna tak!!!
+//        wartosc = "ass"; /// tak w ogóle nie mozna, bo do StringBuilder jest proba przypisania stringa
+//        wartosc = null;/// nie mozna tak!!!
+
+        /// ale mo¿na tak, czyli zmienic zawartosc obiektu StringBuidler!
+        wartosc.append("ass");
+
+Ale, gdy w Main utworzymy final StringBuilder i przeka¿emy go do metody, która przyjmuje StringBuilder(czyli nie final StringBuilder), to wtedy mozna w takiej metodzie robiæ:
+przeslanyStringBuilder = new StringBuilder();
+Dodatkowo, w przypadku jak wy¿ej, tworzony jest drugi obiekt, czyli przekazany obiekt w klasie Main istnieje, a ten dodatkowo utworzony obiekt w metodzie, istnieje jako drugi,
+ca³kiem inny obiekt!!!!
+
+
+------------------------------------ Access Modifiers ---------------------------------------------------------------
+https://www.baeldung.com/java-access-modifiers
+- default
+Czyli gdy nie dajemy ¿adnego modyfikatora - wtedy takie zmienne, metody itp. nazywane s± "package private", czyli dostêpne s± tylko w obrêbie pakietu, gdzie s± zdefiniowane.
+Mo¿na po nich dziedziczyæ, ale w obrêbie tego samego pakietu.
+
+
+------------------------------------ przekazywanieObiektówDoMetod ---------------------------------------------------
+- StringBuilder dzia³a typowo obiektowo - czyli jak przekazujemy obiekt, to zmieniaj±c jego warto¶æ w metodzie (nawet w innej klasie), to zmiana warto¶ci nastêpuje
+te¿ w klasie, w której zosta³ stworzony. Za ka¿dym razem ten sam hashCode() ma.
+- int - dzia³a jak zwyk³y int, czyli przekazuj±c warto¶æ do metody i zmieniaj±c jej warto¶c w tej metodzie, to zmiany zostaj± w obrêbie tej metody. Je¶li chcemy
+w klasie, gdzie ta warto¶æ powsta³a u¿yæ tej nowej warto¶ci, to musimy j± zwróciæ
+- Integer - ciekawe zachowanie - przekazuj±c z Main do KlasaUtilsowa zmienn± Integer (niewa¿ne jak zainicjalizowan±), to zmiana warto¶ci w metodzie z klasy
+KlasaUtilsowa, powoduje zmianê tylko w tej metodzie, a w klasie Main nie - maj± one swój hashcode() (te z Main maj± swój, a te z KlasaUtilsowa swój). Dodatkowo,
+hashCode() by³ za ka¿dym razem równy warto¶ci, jak± przypisali¶my do zmiennej (je¶li zrobili¶my Integer a = 4, to hashCode() te¿ by³ 4)
+- Double - Zachowanie podone jak dla Integer. Z t± ró¿nic±, ¿e tutaj hashCode() mia³ inne warto¶ci ni¿ warto¶æ zmiennej - nie by³ zwi±zany z podan± warto¶ci± zmiennej.
+Reszta tak samo jak dla Integer
+- List<> - zachowuje siê podobnie jak obiekt StringBuilder, czyli jak w klasie main tworzymy List<> i dodamy co¶do niej, przekazujemy do metody z KlasaUtilsowa i tam
+uzupe³niamy, to potem, jak u¿ywamy tej listy w Main (czyli jeste¶my ju¿ poza wywo³aniem metody z KlasaUtilsowa), to ma ona warto¶ci, które dodali¶my w KlasaUtilsowa.
+W tym przypadku maj± ten sam hashCode() ---- u¿ywana metoda z KlasaUtilsowa -> robienieCzegosZlist().
+Je¶li w Main wywo³ujemy metodê z KlasaUtilsowa, któa nic nie przyjmuje, ale zwraca tworzon± w tej metodzie List<>, to hashCode() z poziomu KlasaUtilsowa oraz zwrócona
+List<> z poziomu Main, maj± ró¿ne hashCode()! --- metoda metodaZwracajacaListe() z KlasaUtilsowa.
+Natomiast, je¶li zrobimy List<> w Main i uzupe³nimy, nastêpnie wywo³amy metodê z KlasaUtilsowa, która nic nie przyjmuje, ale zwraca utworzon± w sobie List<>, to na ka¿dym
+etapie jest ró¿ny hashCode(). HC wywo³any w Main, jest ró¿ny od tego wywo³anego na utworzone List<> w KlasaUtilsowa, oraz ró¿ny od tego zwróconego do Main (pomimo
+przypisania do List<> z pierwszego kroku - czyli miejsca pierwszego wywo³ania HC) --- metoda metodaZwracajacaListe() z KlasaUtilsowa.
+W Main tworzymy List<>, któr± przekazujemy do metody, któa przyjmuje final List<> (oczywi¶cie mo¿emy do takiej final List<> dodawaæ. Nie mo¿na zrobiæ tempFinalList =
+new ArrayList<>();) to jak dodamy sobie w tej metodzie KlasaUtilsowa co¶ do takiej List<> to te rzeczy bêd± te¿ poza wywo³aniem z tej metody, czyli jest przekazane do
+obiektu. HashCode() maj± taki sam. ---- metoda listaDlaMetodyZfinalList();
+Je¶li utworzymy w Main List<>, gdzie co¶ dodamy, przeka¿emy j± do metody, która przyjmuje final List; dodanie czego¶, do takiej final List<>, oraz pó¼niejsze przypisanie
+tej zwracanej List<> (do Listy, w klasie Main, która zosta³a przekazana do metody.). W tym przypadku ka¿dy etap ma ró¿ny hashCode();
+---- metoda robienieCzegosZmapaPrzyjmujacaFinalListMetodaKtoraZwracaList()
+
+- robiæ te¿ "JakZmienneSaDomyslnieUzupelniane"
+
+
+
+
+
+
+
+

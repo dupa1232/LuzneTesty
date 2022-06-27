@@ -1,0 +1,15 @@
+Istotne jest zachowanie przy:
+
+Klasa1 klasa1 = new Klasa2();
+Bo wtedy metody z Klasa1 tylko mo¿emy wywo³ywaæ! Jakich¶ nowych, dodanych metod w Klasa2, nie mo¿emy wywo³ywaæ! Natomiast, jak metoda z Klasa1,
+jest nadpisana w Klasa2, to wywo³ywana jest ta nadpisana, czyli z Klasa2!
+Je¶li mamy Klasa3, która ma metodê, która przyjmuje obiekt Klasa1, to mo¿emy do niej przekazywaæ:
+Klasa1 klasa1 = new Klasa1();
+Klasa1 klasa1iPol = new Klasa2();
+Klasa2 klasa2 = new Klasa2();
+Takie obiekty, czyli: klasa1, klasa1iPol, klasa2
+
+Moje przemy¶lenia odno¶nie obiektów, deklaracji ich itp:
+Gdy mamy do czynienia z dziedziczeniem, to 'dziecko' ma dostêp do zasobów 'rodzica', ale jak tworzymy obiekt 'rodzic = new dziecko',
+to silniejszy jest rodzic, czyli mamy dostêp g³ównie do jego zasobów, a nie dziecka, czyli mo¿emy wywo³ywaæ metody rodzica, ale jakich¶ dodanych
+w dziecku nie. Je¶li w dziecku nadpisali¶my metodê rodzica, to wywo³ywana jest ta nadpisana wersja, czyli z dziecka!

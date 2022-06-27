@@ -1,0 +1,9 @@
+Je¶li w klasie abstrakcyjnej, ktora rozszerzamy, jest konstruktor, to musi byc tez tutaj, czyli w klasie rozszerzajacej, z uzyciem super()!!!
+patrz (KlasaAbstrakcyjna, Klasa)
+
+Jak nie ma, to poniekad tez musi byc, i w sumie jest, bo jak w klasie abstrakcyjnej nie ma domyslnego konstruktora,
+to znakiem tego, jest domyslny, wiec wtedy problem sie poniekad sam rozwiazuje, bo jak w Klasa nie dodajemy konstruktora, to mamy domyslny.
+patrz (KlasaAbstrakcyjna2, Klasa2)
+
+Ale oczywiscie, jak w KlasaAbstrakcyjna nie ma konstruktora, to nic nie stoi na przeszkodzie, zeby w Klasa, dodac konstruktor.
+patrz (KlasaAbstrakcyjna1, Klasa1)

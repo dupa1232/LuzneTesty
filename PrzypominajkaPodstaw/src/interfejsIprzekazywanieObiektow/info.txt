@@ -1,0 +1,3 @@
+Chodzi o to, ¿e jak metoda przyjmuje "rodzica", to ka¿de jego "dziecko" (mowa o dziedziczeniu lub implementacji
+interfejsów) mo¿na potem przekazaæ do takiej metody i ona, ta metoda, je przyjmie.
+onedrive / misiu889 / programowanie / tips & tricks

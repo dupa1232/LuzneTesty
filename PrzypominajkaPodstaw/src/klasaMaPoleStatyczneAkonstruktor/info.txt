@@ -1,0 +1,7 @@
+Je¶li jest klasa, która ma pole statyczne, to tworz±c do niego gettery i settery, s± one metodami statycznymi.
+
+Da siê z poziomu konstruktora ustawiæ takie pole, chocia¿ w inteliij, automat nie podpowiada tej zmiennej do tego ? jak
+siê doda rêcznie, to jest ok. Potem, jak ustawiamy z innej klasy warto¶c do tego konstruktora, to nie ma problemu.
+
+Co ciekawe, potem tworz±c w drugiej klasie obiekt tej pierwszej (z polem statycznym), to mo¿emy z poziomu obiektu odwo³ywaæ siê
+do tego gettera i settera, czyli nie jest niezbêdne odwo³ywanie z poziomu klasy ? ale z poziomu klasy, czyli bez tworzenia obiektu, te¿ jest mo¿liwe.

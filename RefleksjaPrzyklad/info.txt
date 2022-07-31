@@ -1,0 +1,3 @@
+https://en.wikipedia.org/wiki/Reflective_programming#Java
+https://www.geeksforgeeks.org/how-to-access-private-field-and-method-using-reflection-in-java/
+
